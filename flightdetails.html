@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Summary - MakeMyTrip Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="flightdetails.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="new-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left">
+<a href="index.html">
+  <img src="logo-removebg-preview.png" alt="Logo" class="logo" />
+</a>      </div>
+      <nav class="navbar-middle">
+        <a href="#" class="nav-item">Flights</a>
+        <a href="#" class="nav-item">Offers</a>
+        <a href="#" class="nav-item">My Bookings</a>
+        <a href="#" class="nav-item">Support</a>
+      </nav>
+      <div class="navbar-right">
+        <div class="login-section">
+          <img src="images/login.png" alt="Login Icon" class="login-icon">
+          <p class="login-title">Login / Create Account</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <div class="trip-details">
+      <h2>Complete your booking</h2>
+      <br><br><br><br><br>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Flight Card -->
+    <div class="flight-card">
+      <div class="flight-header">
+        <div>
+          <h2>New Delhi → Bengaluru</h2>
+          <p><span class="date-badge">Friday , June 13</span> Non Stop · 02 h 55 m</p>
+        </div>
+        <div class="cancel-policy">CANCELLATION FEES APPLY</div>
+      </div>
+
+      <div class="flight-info-row">
+        <img src="airlinelogo/indigoooooooo.webp" alt="Airline Logo" class="airline-logo">
+        <div class="flight-code">QP 1350</div>
+        <div class="aircraft-type">Boeing 737</div>
+      </div>
+
+      <div class="flight-route-box">
+        <div class="flight-time">
+          <strong>21:45</strong> <span>New Delhi · Indira Gandhi International Airport, Terminal T1D</span>
+        </div>
+        <div class="flight-time">
+          <strong>00:40</strong> <span>Bengaluru · Bengaluru International Airport, Terminal T1</span>
+        </div>
+
+        <div class="baggage-box">
+          <div class="baggage-item">
+            <img src="images/cabin.png" alt="Cabin Baggage">
+            <span>Cabin Baggage: 7 Kgs (1 piece only) / Adult</span>
+          </div>
+          <div class="baggage-item">
+            <img src="images/checkin.png" alt="Check-in Baggage">
+            <span>Check-In Baggage: 15 Kgs (1 piece only) / Adult</span>
+          </div>
+        </div>
+
+        <p class="baggage-note">
+          Got excess baggage? Don’t stress, buy extra check-in baggage allowance for DEL-BLR at fab rates!
+          <a href="#">View details</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Cancel Policy -->
+    <div class="cancel-policy-card">
+      <div class="cancel-policy-header">
+        <h3>Cancellation & Date Change Policy</h3>
+        <a href="#">View Policy</a>
+      </div>
+
+      <div class="cancel-policy-body">
+        <div class="airline-info">
+          <img src="airlinelogo/indigoooooooo.webp" alt="Airline" />
+          <span>DEL-BLR</span>
+        </div>
+
+        <div class="cancel-details">
+          <p>Cancellation Penalty:</p>
+          <br>
+          <div class="penalty-bar">
+            <span class="penalty-amount left">₹ 4,579</span>
+            <span class="penalty-amount right">₹ 8,001</span>
+            <div class="penalty-gradient"></div>
+            <div class="penalty-labels">
+              <span>Now</span>
+              <span>13 Jun<br>19:55</span>
+              <span>13 Jun<br>21:55</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Ons Section -->
+<div class="addons-box">
+  <h3>Add Ons</h3>
+  <div class="addons-row">
+    <!-- Meals -->
+      <a href="meal.html" style="text-decoration: none; color: inherit;">
+    <div class="addon-card">
+      <img src="images/meal.png" alt="Meal" />
+      <div>
+        <strong>Meals</strong><br />
+        <small>Choose your meal preference</small>
+      </div>
+    </div>
+    </a>
+
+    <!-- Extra Baggage -->
+     <a href="baggage.html" style="text-decoration: none; color: inherit;">
+    <div class="addon-card">
+      <img src="images/baggage.png" alt="Extra Baggage" />
+      <div>
+        <strong>Extra Baggage</strong><br />
+        <small>Add extra baggage allowance</small>
+      </div>
+    </div>
+    </a>
+  </div>
+</div>
+
+
+    <!-- Info Box -->
+    <div class="info-box">
+      <h3>Important Information</h3>
+      <ul>
+        <li>
+          <strong>🛡️ Check travel guidelines and baggage information below:</strong><br>
+          • Carry no more than 1 check-in baggage and 1 hand baggage per passenger. If violated, airline may levy extra charges.
+        </li>
+        <li>
+          <strong>🛡️ Unaccompanied Minors Travelling:</strong><br>
+          • Children below 18 years travelling alone may be classified as Unaccompanied Minors (UMNR)... airline-specific decisions or charges.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Passenger Details Form -->
+    <div class="form-box">
+      <h3>Passenger Details</h3>
+      <form id="passengerForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" min="1" max="120" required>
+        <input type="date" id="dob" placeholder="Date of Birth" required>
+        <input type="tel" id="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+        <input type="text" id="aadhaar" placeholder="Aadhaar Number" pattern="[0-9]{12}" required>
+      </form>
+      <div style="display: flex; justify-content: flex-end; margin-top: 12px;">
+        <button id="proceed" type="button">PROCEED</button>
+      </div>
+    </div>
+  </div> <!-- End content -->
+
+  <!-- Script -->
+  <script>
+    document.getElementById("proceed").addEventListener("click", function () {
+      const form = document.getElementById("passengerForm");
+
+      if (!form.checkValidity()) {
+        form.reportValidity(); 
+        return;
+      }
+
+      const name = document.getElementById("name").value.trim();
+      const age = document.getElementById("age").value.trim();
+      const dob = document.getElementById("dob").value;
+      const mobile = document.getElementById("mobile").value.trim();
+      const aadhaar = document.getElementById("aadhaar").value.trim();
+
+      if (!/^\d{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      if (!/^\d{12}$/.test(aadhaar)) {
+        alert("Please enter a valid 12-digit Aadhaar number.");
+        return;
+      }
+
+      const data = { name, age, dob, mobile, aadhaar };
+      localStorage.setItem("passengerData", JSON.stringify(data));
+      window.location.href = "summary.html";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: #f8f8f8;
+  color: #111;
+}
+
+.new-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-left, .navbar-middle, .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-middle { gap: 30px; }
+
+.logo {
+  padding-left: 40px;
+  height: 42px;
+}
+
+.nav-item {
+  font-size: 16px;
+  font-weight: 500;
+  color: #003580;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-item:hover { text-decoration: underline; }
+
+.login-section {
+  padding-right: 45px;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+.login-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: #003580;
+}
+.login-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.top-banner {
+  background: linear-gradient(to right, #164981, #1B2F45);
+  color: white;
+  padding: 100px 20px 20px;
+  text-align: center;
+}
+
+.trip-details h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.flight-card {
+  margin: -120px 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.flight-header, .cancel-policy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-header h2, .cancel-policy-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+.flight-header p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 4px;
+}
+
+.date-badge {
+  background: #fcdca8;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.cancel-policy {
+  background: #1f7d3b;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.flight-info-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.airline-logo, .airline-info img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.flight-code, .airline-info {
+  font-weight: 600;
+  color: #333;
+}
+
+.aircraft-type {
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #333;
+}
+
+.flight-route-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  background: #f7f7f7;
+}
+
+.flight-time {
+  margin-bottom: 10px;
+}
+.flight-time strong {
+  font-size: 16px;
+  color: #000;
+  margin-right: 10px;
+}
+.flight-time span {
+  font-size: 14px;
+  color: #555;
+}
+
+.baggage-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.baggage-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.baggage-item img {
+  width: 22px;
+  height: 22px;
+}
+
+.baggage-note {
+  font-size: 13px;
+  color: #555;
+  margin-top: 10px;
+}
+.baggage-note a {
+  color: #1a73e8;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.cancel-policy-card {
+  width: 96=20px;
+  margin-top: 10px;
+  margin: 140px auto;
+  padding: 20px;
+  background: #eaf3fc;
+  border: 2px solid #0074df;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cancel-policy-header a {
+  font-size: 14px;
+  color: #1a73e8;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cancel-policy-header a:hover {
+  text-decoration: underline;
+}
+
+.cancel-policy-body {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cancel-details {
+  flex: 1;
+}
+.cancel-details p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.penalty-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 6px;
+  background: transparent;
+  margin-bottom: 25px;
+}
+.penalty-gradient {
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #6fcf97, #f2c94c, #eb5757);
+}
+
+.penalty-amount.left, .penalty-amount.right {
+  position: absolute;
+  top: -24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.penalty-amount.left { left: 0; }
+.penalty-amount.right { right: 0; }
+
+.penalty-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+.info-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top:20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-box h3 {
+  margin-top: 0;
+}
+
+.info-box li {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.form-box {
+  background-color: #ffffff;
+  padding: 24px 32px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-box h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+#passengerForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#passengerForm input {
+  flex: 1 1 45%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.2s ease-in-out;
+}
+
+#passengerForm input:focus {
+  border-color: #0078d4;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 120, 212, 0.3);
+}
+
+#proceed {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right:250px;
+  margin-top: 8px;
+  color: #fff;
+  background: linear-gradient(to right, #164981, #1B2F45);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#proceed:hover {
+  background: linear-gradient(to right, #005fb8, #008cdb);
+}
+.addons-box {
+  background: #fff;
+  justify-content: center;
+  padding: 10px;
+  width: 800px;
+  margin: -120px auto 0 auto;  /* Center it horizontally */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+.addons-box h3 {
+    text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.addons-row {
+     justify-content: center;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.addon-card {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex: 1 1 200px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.addon-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.addon-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.addon-card strong {
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+
+.addon-card small {
+  font-size: 14px;
+  color: #555;
+}

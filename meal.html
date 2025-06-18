@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Summary - MakeMyTrip Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* --- Base & Navbar Styles (Unchanged) --- */
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: #f8f8f8;
+      color: #111;
+    }
+
+    .new-navbar {
+      position: sticky; /* Sticky is often better than fixed */
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .navbar-left, .navbar-middle, .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-middle { gap: 30px; }
+
+    .logo {
+      padding-left: 40px;
+      height: 36px;
+    }
+
+    .nav-item {
+      font-size: 16px;
+      font-weight: 500;
+      color: #003580;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-item:hover { text-decoration: underline; }
+
+    .login-section {
+      padding-right: 45px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .login-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: #003580;
+    }
+    .login-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: #fff;
+      object-fit: contain;
+    }
+
+    .top-banner {
+      background: linear-gradient(to right, #164981, #1B2F45);
+      color: white;
+      padding: 80px 20px 20px; /* Adjusted padding */
+      text-align: center;
+    }
+    
+    .top-banner h2 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 900;
+    }
+
+    /* --- Styles for Direct Meal Selection --- */
+    .main-content {
+        padding: 40px 20px;
+    }
+    
+    .meal-selection-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 25px 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .meal-selection-container h3 {
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a202c;
+        text-align: left;
+    }
+
+    .meal-tabs {
+        display: flex;
+        border-bottom: 1px solid #e2e8f0;
+        margin-bottom: 20px;
+    }
+
+    .tab-wrapper {
+        flex: 1;
+        position: relative;
+        padding: 15px 0;
+        text-align: center;
+        cursor: pointer;
+        /* Transition for a smooth hover-off effect */
+        transition: background-color 0.3s ease;
+    }
+
+    /* Subtle background color on hover */
+    .tab-wrapper:hover {
+        background-color: #f7f9fc;
+    }
+
+    .tab-item {
+        font-size: 15px;
+        font-weight: 500;
+        color: #4a5568;
+        border-bottom: 3px solid transparent;
+        transition: color 0.3s ease, border-color 0.3s ease;
+        padding-bottom: 12px;
+    }
+
+    .meal-description {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #5f6368;
+        text-align: center;
+        z-index: 10;
+        background-color: #fff;
+        box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 8px 8px;
+    }
+
+    /* Show description on hover */
+    .tab-wrapper:hover .meal-description {
+        display: block;
+    }
+
+    /* Style for the SELECTED (clicked) item */
+    .tab-wrapper.selected .tab-item {
+        color: #007bff;
+        border-bottom-color: #007bff;
+        font-weight: 700;
+    }
+
+    textarea {
+        width: calc(100% - 30px);
+        height: 80px;
+        border: 1px solid #cbd5e0;
+        border-radius: 8px;
+        padding: 15px;
+        font-family: 'Lato', sans-serif;
+        font-size: 14px;
+        margin-top: 10px;
+        resize: vertical;
+    }
+
+    .proceed-btn {
+        display: block; /* Make it a block element */
+        width: 250px; /* Give it a fixed width */
+        margin: 20px auto 0; /* Center the button */
+        padding: 15px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .proceed-btn:hover {
+        background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="new-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left">
+<a href="index.html">
+  <img src="logo-removebg-preview.png" alt="Logo" class="logo" />
+</a>      </div>
+      <nav class="navbar-middle">
+        <a href="#" class="nav-item">Flights</a>
+        <a href="#" class="nav-item">Offers</a>
+        <a href="#" class="nav-item">My Bookings</a>
+        <a href="#" class="nav-item">Support</a>
+      </nav>
+      <div class="navbar-right">
+        <div class="login-section">
+          <img src="images/login.png" alt="Login Icon" class="login-icon">
+          <p class="login-title">Login / Create Account</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="top-banner">
+    <div class="trip-details">
+      <h2>Complete Your Booking</h2>
+    </div>
+  </div>
+  
+  <main class="main-content">
+    <div class="meal-selection-container">
+        <h3>Choose your meal</h3>
+        <div class="meal-tabs">
+            <div class="tab-wrapper selected">
+                <div class="tab-item">Vegetarian</div>
+                <p class="meal-description">A wholesome meal of paneer with seasoned vegetables, perfect for meal lovers.</p>
+            </div>
+            <div class="tab-wrapper">
+                <div class="tab-item">Non-Vegetarian</div>
+                <p class="meal-description">A delicious chicken dish served with aromatic rice and sides. A hearty option.</p>
+            </div>
+            <div class="tab-wrapper">
+                <div class="tab-item">Vegan</div>
+                <p class="meal-description">A carefully prepared plant-based meal that's both healthy and delicious.</p>
+            </div>
+            <div class="tab-wrapper">
+                <div class="tab-item">Gluten Free</div>
+                <p class="meal-description">Low-allergen meal without gluten. Ideal for health-conscious flyers.</p>
+            </div>
+             <div class="tab-wrapper">
+                <div class="tab-item">Diabetic</div>
+                <p class="meal-description">Low-sugar, balanced meal designed to meet diabetic dietary needs.</p>
+            </div>
+            <div class="tab-wrapper">
+                <div class="tab-item">Jain</div>
+                <p class="meal-description">Prepared according to Jain principles, without root vegetables or animal products.</p>
+            </div>
+        </div>
+   
+      <textarea placeholder="Any special requests or dietary notes?"></textarea>
+      
+<button class="proceed-btn" onclick="goToSummary()">PROCEED</button>
+    </div>
+  </main>
+
+  <script>
+    const mealOptions = document.querySelectorAll('.tab-wrapper');
+
+    mealOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        mealOptions.forEach(opt => opt.classList.remove('selected'));
+        
+        this.classList.add('selected');
+      });
+    });
+
+    function goToSummary() {
+    window.location.href = "flightdetails.html";
+  }
+  </script>
+
+</body>
+</html>

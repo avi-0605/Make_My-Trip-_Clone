@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flight Booking Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="backgroundimage">
+
+<header class="new-navbar">
+  <div class="navbar-container">
+    
+    <!-- Left: Logo -->
+    <div class="navbar-left">
+<a href="index.html">
+  <img src="images/logo.avif" alt="Logo" class="logo" />
+</a>    </div>
+
+    <!-- Center: Navigation Items -->
+    <nav class="navbar-middle">
+      <a href="#" class="nav-item">Flights</a>
+      <a href="" class="nav-item">Offers</a>
+      <a href="#" class="nav-item">My Bookings</a>
+      <a href="#" class="nav-item">Support</a>
+    </nav>
+
+    <!-- Right: Login Section -->
+    <div class="navbar-right">
+      <div class="login-section">
+        <a href="login.html">
+        <img src="images/login.png" alt="Login Icon" class="login-icon">
+</a> 
+        <a href="login.html"><p class="login-title">Login / Create Account</p></a>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+    
+    <!-- Flight Search Container -->
+<div class="container">
+  <div class="flight-search-container">
+    
+    <!-- Search Box -->
+    <div class="search-box">
+      
+      <!-- Trip Type Radio Buttons -->
+      <div class="trip-options">
+        <label><input type="radio" name="trip" checked> One Way</label>
+        <label><input type="radio" name="trip"> Round Trip</label>
+        <label><input type="radio" name="trip"> Multi City</label>
+      </div>
+
+      <!-- Search Row (Flex Layout) -->
+      <div class="search-box-row">
+        
+        <!-- From Box -->
+        <div class="search-box-item from-box" onclick="toggleDropdown('fromDropdown')">
+          <label>From</label>
+          <div class="main-text" id="fromCity">Delhi</div>
+          <div class="sub-text" id="fromAirport">DEL, Delhi Airport India</div>
+          <ul id="fromDropdown" class="dropdown-list">
+            <li onclick="selectCity('fromCity', 'fromAirport', 'Mumbai', 'BOM, Mumbai Airport India')">Mumbai</li>
+            <li onclick="selectCity('fromCity', 'fromAirport', 'New Delhi', 'DEL, Delhi Airport India')">New Delhi</li>
+            <li onclick="selectCity('fromCity', 'fromAirport', 'Bengaluru', 'BLR, Bengaluru Airport India')">Bengaluru</li>
+            <li onclick="selectCity('fromCity', 'fromAirport', 'Chennai', 'MAA, Chennai Airport India')">Chennai</li>
+            <li onclick="selectCity('fromCity', 'fromAirport', 'Hyderabad', 'HYD, Hyderabad Airport India')">Hyderabad</li>
+            <li onclick="selectCity('fromCity', 'fromAirport', 'Kolkata', 'CCU, Kolkata Airport India')">Kolkata</li>
+          </ul>
+        </div>
+
+        <!-- To Box -->
+        <div class="search-box-item to-box" onclick="toggleDropdown('toDropdown')">
+          <label>To</label>
+          <div class="main-text" id="toCity">Bengaluru</div>
+          <div class="sub-text" id="toAirport">BLR, Bengaluru International Airport</div>
+          <ul id="toDropdown" class="dropdown-list">
+            <li onclick="selectCity('toCity', 'toAirport', 'Mumbai', 'BOM, Mumbai Airport India')">Mumbai</li>
+            <li onclick="selectCity('toCity', 'toAirport', 'New Delhi', 'DEL, Delhi Airport India')">New Delhi</li>
+            <li onclick="selectCity('toCity', 'toAirport', 'Bengaluru', 'BLR, Bengaluru Airport India')">Bengaluru</li>
+            <li onclick="selectCity('toCity', 'toAirport', 'Chennai', 'MAA, Chennai Airport India')">Chennai</li>
+            <li onclick="selectCity('toCity', 'toAirport', 'Hyderabad', 'HYD, Hyderabad Airport India')">Hyderabad</li>
+            <li onclick="selectCity('toCity', 'toAirport', 'Kolkata', 'CCU, Kolkata Airport India')">Kolkata</li>
+          </ul>
+        </div>
+
+        <!-- Departure Date -->
+<div class="search-box-item" onclick="openDatePicker('departureDateInput', 'departureDate', 'departureDay')">
+  <label>Departure</label>
+  <div class="main-text" id="departureDate">13 Jun’25</div>
+  <div class="sub-text" id="departureDay">Friday</div>
+  <input type="date" id="departureDateInput" class="hidden-date-picker" onchange="updateDate(this, 'departureDate', 'departureDay')" />
+</div>
+
+<!-- Return Date -->
+<div class="search-box-item" id="returnBox" onclick="openDatePicker('returnDateInput', 'returnDate', 'returnDay')">
+  <label>Return</label>
+  <div class="main-text" id="returnDate">15 Jun’25</div>
+  <div class="sub-text" id="returnDay">Sunday</div>
+  <input type="date" id="returnDateInput" class="hidden-date-picker" onchange="updateDate(this, 'returnDate', 'returnDay')" />
+</div>
+
+        <!-- Travellers & Class -->
+<div class="search-box-item" id="travellerBox">
+          <label>Travellers & Class</label>
+          <div class="main-text">1 Traveller</div>
+          <div class="sub-text">Economy/Premium Economy</div>
+          <!-- ADD THIS INSIDE search-box-item (after sub-text) -->
+<div id="travellerPopup" class="traveller-popup hidden">
+  <div class="section">
+    <label>ADULTS (12y+)</label>
+    <div class="counter" data-type="adult">
+      <button class="decrement">-</button>
+      <span class="count">1</span>
+      <button class="increment">+</button>
+    </div>
+  </div>
+  <div class="section">
+    <label>CHILDREN (2y - 12y)</label>
+    <div class="counter" data-type="child">
+      <button class="decrement">-</button>
+      <span class="count">0</span>
+      <button class="increment">+</button>
+    </div>
+  </div>
+  <div class="section">
+    <label>INFANTS (below 2y)</label>
+    <div class="counter" data-type="infant">
+      <button class="decrement">-</button>
+      <span class="count">0</span>
+      <button class="increment">+</button>
+    </div>
+  </div>
+  <div class="row">
+      <label>Class</label>
+      <select id="classSelect">
+        <option>Economy</option>
+        <option>Premium Economy</option>
+        <option>Business</option>
+        <option>First Class</option>
+      </select>
+    </div>
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Special Fare Line -->
+    <div class="special-fare-line">
+      <span class="fare-title">Select a special fare</span>
+      <span class="badge">EXTRA SAVINGS</span>
+
+      <label class="fare-option">
+        <input type="radio" name="fare" checked />
+        <div>
+          <div>Regular</div>
+          <small>Regular fares</small>
+        </div>
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" />
+        <div>
+          <div>Student</div>
+          <small>Special discount</small>
+        </div>
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" />
+        <div>
+          <div>Senior</div>
+          <small>Up to ₹600 off</small>
+        </div>
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" />
+        <div>
+          <div>Army</div>
+          <small>Up to ₹600 off</small>
+        </div>
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" />
+        <div>
+          <div>Doctors</div>
+          <small>Up to ₹600 off</small>
+        </div>
+      </label>
+    </div>
+
+    <!-- Zero Cancellation -->
+    <div class="zero-cancel">
+      <input type="checkbox" />
+      <div>
+        <strong>Add Zero Cancellation</strong>
+        <span>Get 100% refund on cancellation</span>
+      </div>
+    </div>
+
+    <!-- Search Button -->
+
+  </div> <!-- .flight-search-container -->
+<div class="search-button-wrapper">
+  <button class="search-button" onclick="handleSearch()">SEARCH</button>
+</div>
+
+
+</div> <!-- .container -->
+
+
+  </div>
+
+</div>
+<div class="offers-section">
+  <div id="offers">
+    <div class="offers-header">
+      <h2>Flight Offers</h2>
+      <a href="#">VIEW ALL</a>
+    </div>
+
+    <div class="offers-grid">
+      <div class="offer-card">
+        <img src="offers/save1.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Smooth Takeoffs, Every Time!</div>
+          <div class="offer-desc">Enjoy priority check-in & faster boarding across major airports.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save2.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Save ₹1200 on Domestic Flights!</div>
+          <div class="offer-desc">Use code MMTFLY1200 on your first app booking.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save3.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Extra Baggage at No Extra Cost!</div>
+          <div class="offer-desc">Get 10kg more baggage on select airline partners.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save9.webp" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Midnight Sale – Fares from ₹999!</div>
+          <div class="offer-desc">Book between 12 AM – 3 AM for cheapest deals.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save5.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">FREE Gourmet Meals on Select Flights!</div>
+          <div class="offer-desc">Enjoy chef-curated meals in Business Class.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save7.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Flat ₹2500 OFF on Intl Flights!</div>
+          <div class="offer-desc">Fly to 50+ countries with savings.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save7.webp" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Upgrade to Premium for ₹1!</div>
+          <div class="offer-desc">Limited-time offer to upgrade your seat for less.</div>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="offers/save8.avif" alt="Offer">
+        <div class="offer-content">
+          <div class="offer-title">Relax Kits for Long Haul Flights!</div>
+          <div class="offer-desc">Free sleep kits & eye masks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="alert-banner">
+  In solidarity with our nation, we have discontinued all promotions <br>and offers for travel to 
+  <span class="highlight-alert">Azerbaijan and Turkey</span>.
+</div>
+
+<div class="promo-banner">
+  <div class="promo-content">
+    <img src="images/EMIRATESBANNER.png" alt="Emirates Airline" class="promo-image" />
+    <div class="promo-text">
+      <h2>Experience <span class="highlight">Emirates Airline</span> with MakeMyTrip</h2>
+      <p>Redefine Elegance in the Skies With Our Premium Airline Partner</p>
+      <a href="#" class="btn-store">VIEW EMIRATES STORE</a>
+    </div>
+  </div>
+  
+</div>
+<section class="flight-info">
+  <div class="info-group">
+    <h4>FLIGHT BOOKING</h4>
+    <p>Book Domestic Flights, International Flights, Cheap Air Tickets, Flight Ticket Offers, Round Trip Flights, One Way Flights, Web Check-in, Flight Schedule, Book Flight Tickets Online, Domestic Airlines, International Airlines, Popular Flight Routes, Low-Cost Airlines, Last Minute Flights, Group Booking, Fare Calendar, Travel Insurance for Flights, Flight Status, PNR Status, Flight Cancellation, Reschedule Flights, Flight Refund Policies</p>
+  </div>
+
+  <div class="info-group">
+    <h4>POPULAR FLIGHT ROUTES</h4>
+    <p>Delhi Mumbai Flights, Mumbai Goa Flights, Bangalore Delhi Flights, Chennai Kolkata Flights, Hyderabad Pune Flights, Ahmedabad Bangalore Flights, Delhi Dubai Flights, Mumbai London Flights, Chennai Singapore Flights, Hyderabad New York Flights, Bangalore Bangkok Flights</p>
+  </div>
+
+  <div class="info-group">
+    <h4>POPULAR DOMESTIC AIRLINES</h4>
+    <p>IndiGo, SpiceJet, Air India, Go First, Vistara, Akasa Air, Alliance Air</p>
+  </div>
+
+  <div class="info-group">
+    <h4>POPULAR INTERNATIONAL AIRLINES</h4>
+    <p>Emirates, Qatar Airways, Singapore Airlines, Etihad Airways, Lufthansa, Turkish Airlines, British Airways, Air France, Thai Airways</p>
+  </div>
+
+  <div class="info-group">
+    <h4>POPULAR DESTINATIONS</h4>
+    <p>Flights to Delhi, Flights to Mumbai, Flights to Goa, Flights to Bangalore, Flights to Hyderabad, Flights to Kolkata, Flights to Dubai, Flights to Singapore, Flights to London, Flights to New York, Flights to Bangkok, Flights to Toronto</p>
+  </div>
+</section>
+<section class="footer-description">
+  <div class="desc-column">
+    <h4>Why MakeMyTrip for Flight Bookings?</h4>
+    <p>Founded in 2000, MakeMyTrip has become India’s most trusted travel brand, offering unmatched value, competitive airfares, and a seamless booking experience. Whether it’s a quick getaway or a planned international vacation, booking flight tickets with MakeMyTrip is simple and secure. Benefit from exclusive app-only deals, 24/7 support, and features like Fare Calendar, MyWallet, and MyRewardsProgram that</p>
+  </div>
+
+  <div class="desc-column">
+    <h4>Booking Cheap Flights with MakeMyTrip</h4>
+    <p>With MakeMyTrip, finding cheap air tickets has never been easier. Search and book from a wide range of domestic and international airlines in just a few clicks. Our powerful booking engine helps you find the best fares with real-time price comparisons. Plus, with over 5 crore happy customers, our platform ensures a user-friendly and reliable booking experience tailored to your travel needs.</p>
+  </div>
+
+  <div class="desc-column">
+    <h4>Domestic Flight Tickets on MakeMyTrip</h4>
+    <p>MakeMyTrip is your go-to platform for booking domestic flights across India. From metro cities to remote locations, we cover it all with airlines like IndiGo, Air India, SpiceJet, Akasa Air, and more. Avail great discounts, last-minute deals, fare alerts, and instant booking confirmations. With MakeMyTrip, travel within India is now affordable, fast, and hassle-free.</p>
+  </div>
+</section>
+<footer class="black-footer">
+  <p class="footer-copy">© 2025 MAKEMYTRIP PVT. LTD.</p>
+</footer>
+
+<script>
+
+function handleSearch() {
+  // Get city and airport text
+  const fromCity = document.getElementById("fromCity").textContent;
+  const toCity = document.getElementById("toCity").textContent;
+
+  // Get departure and return date text
+  const departDate = document.getElementById("departureDate").textContent;
+  const returnDate = document.getElementById("returnDate").textContent;
+
+  // Get trip type (radio buttons)
+  const tripType = document.querySelector('input[name="trip"]:checked').parentElement.textContent.trim();
+
+  // Get total passengers and class
+  const travellers = document.querySelector("#travellerBox .main-text").textContent;
+  const travelClass = document.querySelector("#travellerBox .sub-text").textContent;
+
+  // Build the URL
+  const url = `search.html?from=${encodeURIComponent(fromCity)}&to=${encodeURIComponent(toCity)}&depart=${encodeURIComponent(departDate)}&return=${encodeURIComponent(returnDate)}&tripType=${encodeURIComponent(tripType)}&passengers=${encodeURIComponent(travellers)}&class=${encodeURIComponent(travelClass)}`;
+
+  window.location.href = url;
+}
+
+//  Shows/hides a dropdown menu for selecting cities (From/To).
+  function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    document.querySelectorAll('.dropdown-list').forEach(list => {
+      if (list.id !== id) list.style.display = 'none';
+    });
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function selectCity(mainTextId, subTextId, cityName, airportDetails) {
+    document.getElementById(mainTextId).textContent = cityName;
+    document.getElementById(subTextId).textContent = airportDetails;
+    document.querySelectorAll('.dropdown-list').forEach(list => {
+      list.style.display = 'none';
+    });
+  }
+
+  window.addEventListener('click', function (e) {
+    if (!e.target.closest('.search-box-item')) {
+      document.querySelectorAll('.dropdown-list').forEach(list => {
+        list.style.display = 'none';
+      });
+    }
+  });
+  function openDatePicker(inputId, dateDisplayId, dayDisplayId) {
+  const input = document.getElementById(inputId);
+  input.showPicker(); 
+}
+
+// Updates the UI with the selected date and weekday when the user picks a date.
+function updateDate(inputElement, dateDisplayId, dayDisplayId) {
+  const selectedDate = new Date(inputElement.value);
+  const options = { day: '2-digit', month: 'short', year: '2-digit' };
+  const dateString = selectedDate.toLocaleDateString('en-GB', options).replace(/ /g, '’');
+  const weekday = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+  document.getElementById(dateDisplayId).textContent = dateString;
+  document.getElementById(dayDisplayId).textContent = weekday;
+}
+const travellerBox = document.querySelector("#travellerBox");
+  const popup = document.querySelector("#travellerPopup");
+
+  travellerBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", () => {
+    popup.classList.add("hidden");
+  });
+
+  
+  popup.addEventListener("click", (e) => e.stopPropagation());
+
+  popup.querySelectorAll(".counter").forEach(counter => {
+    const type = counter.dataset.type;
+    const countEl = counter.querySelector(".count");
+    const increment = counter.querySelector(".increment");
+    const decrement = counter.querySelector(".decrement");
+
+    increment.addEventListener("click", () => {
+      let val = parseInt(countEl.textContent);
+      if (val < 9) countEl.textContent = val + 1;
+      updateText();
+    });
+
+    decrement.addEventListener("click", () => {
+      let val = parseInt(countEl.textContent);
+      if ((type === "adult" && val > 1) || (type !== "adult" && val > 0)) {
+        countEl.textContent = val - 1;
+        updateText();
+      }
+    });
+  });
+
+  function updateText() {
+    const mainText = travellerBox.querySelector(".main-text");
+    const counts = popup.querySelectorAll(".count");
+    let total = 0;
+    counts.forEach(c => total += parseInt(c.textContent));
+    mainText.textContent = `${total} Traveller${total > 1 ? 's' : ''}`;
+  }
+  function updateText() {
+  const mainText = travellerBox.querySelector(".main-text");
+  const subText = travellerBox.querySelector(".sub-text");
+  const counts = popup.querySelectorAll(".count");
+  const travelClass = document.getElementById("classSelect").value;
+
+  let total = 0;
+  counts.forEach(c => total += parseInt(c.textContent));
+
+  mainText.textContent = `${total} Traveller${total > 1 ? 's' : ''}`;
+  subText.textContent = travelClass;
+  document.getElementById("classSelect").addEventListener("change", updateText);
+}
+
+
+</script>
+
+</body>
+
+</html>

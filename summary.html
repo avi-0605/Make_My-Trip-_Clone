@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Summary - MakeMyTrip Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="summary.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="new-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left">
+<a href="index.html">
+  <img src="logo-removebg-preview.png" alt="Logo" class="logo" />
+</a>      </div>
+      <nav class="navbar-middle">
+        <a href="#" class="nav-item">Flights</a>
+        <a href="#" class="nav-item">Offers</a>
+        <a href="#" class="nav-item">My Bookings</a>
+        <a href="#" class="nav-item">Support</a>
+      </nav>
+      <div class="navbar-right">
+        <div class="login-section">
+          <img src="images/login.png" alt="Login Icon" class="login-icon">
+          <p class="login-title">Login / Create Account</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <div class="trip-details">
+      <h2>Mumbai → Bengaluru</h2>
+      <p>Fri, Jun 13, 2025 • 2 Adults • Round Trip</p>
+    </div>
+  </div>
+
+  <!-- FLIGHT DETAILS -->
+  <div class="summary-content">
+
+    <section>
+      <h3>Flight Route Summary</h3>
+      <div class="row"><p>Route</p><p>Mumbai → Bengaluru</p></div>
+      <div class="row"><p>Trip Type</p><p>Round Trip</p></div>
+      <div class="row"><p>Date of Travel</p><p>Fri, 13 Jun 2025</p></div>
+    </section>
+
+    <section>
+      <h3>Departure & Arrival Information</h3>
+      <div class="row"><p>Departure Time</p><p>6:30 AM</p></div>
+      <div class="row"><p>Arrival Time</p><p>8:40 AM</p></div>
+      <div class="row"><p>Flight Duration</p><p>2h 10m</p></div>
+      <div class="row"><p>Aircraft</p><p>Boeing 737</p></div>
+      <div class="row"><p>Flight ID</p><p>QP 1350</p></div>
+    </section>
+
+    <section>
+      <h3>Baggage Allowance</h3>
+      <div class="row"><p>Cabin Baggage</p><p>7 kg</p></div>
+      <div class="row"><p>Check-in Baggage</p><p>15 kg</p></div>
+    </section>
+
+    <section>
+      <h3>Fare Breakdown</h3>
+      <div class="row"><p>Base Fare</p><p>₹6,700</p></div>
+      <div class="row"><p>Passengers</p><p>2 Adults</p></div>
+      <div class="row total"><p>Total</p><p>₹13,400</p></div>
+    </section>
+    <section>
+    <h3>Add - ons</h3>
+    <div class="row"><p>Meals</p><p>Not Included</p></div>
+    <div class="row"><p>Extra Baggage</p><p>Available</p></div>
+  </section>
+
+<section>
+  <h3>Passenger Details</h3>
+  <div class="row"><p>Name</p><p id="name">-</p></div>
+  <div class="row"><p>Age</p><p id="age">-</p></div>
+  <div class="row"><p>Mobile number</p><p id="mobile">-</p></div>
+  <div class="row"><p>Date of Birth</p><p id="dob">-</p></div>
+  <div class="row"><p>Adhaar Number</p><p id="aadhaar">-</p></div>
+</section>
+
+
+  <div class="baggage-alert">
+    Baggage rules apply. Check-in 2 hours before departure.
+  </div>
+</div>
+
+  </div>
+<footer class="black-footer">
+  <p class="footer-copy">© 2025 MAKEMYTRIP PVT. LTD.</p>
+</footer>
+<script>
+  const data = JSON.parse(localStorage.getItem('passengerData'));
+
+  if (data) {
+    document.getElementById('name').textContent = data.name;
+    document.getElementById('age').textContent = `${data.age} years`;
+    document.getElementById('dob').textContent = formatDate(data.dob);
+    document.getElementById('mobile').textContent = data.mobile;
+    document.getElementById('aadhaar').textContent = data.aadhaar;
+  }
+
+  function formatDate(dateStr) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-IN', options);
+  }
+</script>
+
+</body>
+</html>

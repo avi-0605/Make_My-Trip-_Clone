@@ -1,0 +1,388 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+  background-color: #f8f8f8;
+}
+
+h1, h2, h3 {
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+button {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* Navbar */
+.new-navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #ffffff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar-left, .navbar-middle, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    padding-left: 40px;
+    height: 42px;
+}
+
+.navbar-middle {
+    gap: 30px;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-weight: 500;
+    color: #003580;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+.login-section {
+    padding-right: 45px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.login-title {
+    font-size: 11px;
+    font-weight: 500;
+    color: #003580;
+}
+
+.login-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Search Bar */
+.main-search {
+  background: linear-gradient(to right, #164981, #1B2F45);
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: 60px;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.search-field {
+    background: #004080;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 150px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.search-field label {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.search-field input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    margin-top: 4px;
+}
+/* Fare Type Section */
+.fare-type-section {
+  background: linear-gradient(to right, #164981, #1B2F45);
+    padding-bottom: 20px;
+    padding-left: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.fare-type-label {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.8;
+    letter-spacing: 0.4px;
+    margin-right: 10px;
+}
+
+.fare-options {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.fare-option {
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.fare-option input[type="radio"] {
+    accent-color: white;
+    width: 14px;
+    height: 14px;
+}
+
+/* Layout wrapper */
+.search-results-wrapper {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 20px 40px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Sidebar styles */
+.filter-sidebar {
+    width: 240px;
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filter-box {
+    margin-bottom: 24px;
+}
+
+.filter-box h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.filter-box label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.price-range label {
+    font-weight: 20;
+    font-size: 14px;
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Right panel */
+.results-right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-tabs {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.trip-tab {
+    padding: 10px 100px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.trip-tab:hover {
+    border-color: #0077ff;
+    color: #0077ff;
+}
+
+.trip-tab strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.trip-tab span {
+    font-weight: 400;
+    color: #555;
+}
+
+/* Flight Cards Wrapper — 2 per row */
+.flight-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Individual Flight Card */
+.flight-card {
+      width: 400px;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.flight-card:hover {
+    transform: translateY(-4px);
+}
+
+.flight-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.airline-logo {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+.airline-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.baggage {
+    font-size: 0.8rem;
+    color: #555;
+    text-align: right;
+}
+
+.flight-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.time-block {
+    text-align: center;
+}
+
+.time {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.city {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.duration {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #222;
+    padding: 4px 8px;
+    background: #f6f6f6fd;
+    border-radius: 6px;
+}
+
+.stops {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: bold;
+    color: #222;
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* Distinct badge types with unique colors */
+.badge.cheapest {
+    background-color: #43a047; /* Green */
+}
+
+.badge.refundable {
+    background-color: #1976d2; /* Blue */
+}
+
+.badge.nonstop {
+    background-color: #fb8c00; /* Orange */
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .flight-cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

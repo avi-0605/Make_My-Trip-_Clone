@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking - MakeMyTrip Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="new-navbar">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <div class="navbar-left">
+<a href="index.html">
+  <img src="logo-removebg-preview.png" alt="Logo" class="logo" />
+</a>      </div>
+
+      <!-- Navigation Links -->
+      <nav class="navbar-middle">
+        <a href="#" class="nav-item">Flights</a>
+        <a href="#" class="nav-item">Offers</a>
+        <a href="#" class="nav-item">My Bookings</a>
+        <a href="#" class="nav-item">Support</a>
+      </nav>
+
+      <!-- Login -->
+      <div class="navbar-right">
+        <div class="login-section">
+          <img src="images/login.png" alt="Login Icon" class="login-icon">
+          <p class="login-title">Login / Create Account</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SEARCH BAR -->
+  <section class="main-search">
+    <div class="search-field">
+      <label>TRIP TYPE</label>
+      <input type="text" id="trip" readonly>
+    </div>
+
+    <div class="search-field">
+      <label>FROM</label>
+      <input type="text" id="from" readonly>
+    </div>
+
+    <div class="search-field">
+      <label>TO</label>
+      <input type="text" id="to" readonly>
+    </div>
+
+    <div class="search-field">
+      <label>DEPART</label>
+      <input type="text" id="depart" readonly>
+    </div>
+
+    <div class="search-field">
+      <label>RETURN</label>
+      <input type="text" id="return" readonly>
+    </div>
+
+    <div class="search-field">
+      <label>PASSENGERS & CLASS</label>
+      <input type="text" id="passengers" readonly>
+    </div>
+  </section>
+
+  <!-- FARE TYPE -->
+  <section class="fare-type-section">
+    <div class="fare-type-label">FARE TYPE</div>
+    <div class="fare-options">
+      <label class="fare-option">
+        <input type="radio" name="fare" value="Regular" checked>
+        Regular
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" value="Student">
+        Student
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" value="Senior">
+        Senior
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" value="Army">
+        Army
+      </label>
+      <label class="fare-option">
+        <input type="radio" name="fare" value="Doctor">
+        Doctor
+      </label>
+    </div>
+  </section>
+  <!-- filters -->
+  <div class="search-results-wrapper">
+    <!-- Sidebar Filters -->
+    <aside class="filter-sidebar">
+      <section class="filter-box">
+  <h3>Popular Filters</h3>
+  <label><input type="checkbox" class="filter" value="nonstop"> Non stop </label>
+  <label><input type="checkbox" class="filter" value="refundable"> Refundable Fares </label>
+    <label><input type="checkbox" class="filter" value="cheapest"> Cheapest </label>
+
+  <label><input type="checkbox" class="filter" value="indigo"> Indigo </label>
+  <label><input type="checkbox" class="filter" value="airindia"> Air India </label>
+</section>
+
+<section class="filter-box airlines-section">
+  <h3>Airlines</h3>
+  <label><input type="checkbox" class="filter" value="indigo"> IndiGo</label>
+  <label><input type="checkbox" class="filter" value="spicejet"> SpiceJet</label>
+  <label><input type="checkbox" class="filter" value="nonstop"> Non Stop</label>
+  <label><input type="checkbox" class="filter" value="refundable"> Refundable</label>
+</section>
+
+
+      </section>
+    </aside>
+    <div class="right-side">
+        <div class="flight-cards-wrapper">
+  <!-- CARD 1 -->
+<div class="flight-card" data-airline="indigo" data-tags="nonstop refundable">
+  <div class="badge-wrapper">
+    <div class="badge nonstop">Non Stop</div>
+  </div>
+  <div class="flight-header">
+    <img src="airlinelogo/indigo.png" class="airline-logo" />
+    <div class="airline-name">Indigo</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">06:30</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="duration">
+      <div>02 h 10 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">08:40</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="price">₹6,200</div>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="flight-card" data-airline="spicejet" data-tags="refundable">
+  <div class="badge badge-orange">Free Meal</div>
+  <div class="flight-header">
+    <img src="airlinelogo/spicejet.png" class="airline-logo" />
+    <div class="airline-name">SpiceJet</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">07:00</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="duration">
+      <div>02 h 15 m</div>
+      <div class="stops">1 stop via Goa</div>
+    </div>
+    <div class="time-block">
+      <div class="time">09:15</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="price">₹5,900</div>
+  </div>
+</div>
+
+<!-- CARD 3 -->
+ <div class="flight-card" data-airline="airindia" data-tags="nonstop refundable" data-departure="06:30" data-price="4567">
+  <div class="badge-wrapper">
+    <div class="badge badge-green">Cheapest</div>
+    <div class="badge nonstop">Non Stop</div>
+  </div>
+  <div class="flight-header">
+    <img src="airlinelogo/airindia.png" class="airline-logo" />
+    <div class="airline-name">Air India</div>
+    <div class="baggage">Cabin: 3kg | Check-in: 10kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">08:00</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="duration">
+      <div>02 h 30 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">10:30</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="price">₹4,999</div>
+  </div>
+</div>
+
+<!-- CARD 4 -->
+<div class="flight-card" data-airline="vistara" data-tags="nonstop cheapest">
+  <div class="badge-wrapper">
+    <div class="badge">Cheapest</div>
+  </div>
+  <div class="flight-header">
+    <img src="airlinelogo/vistara.png" class="airline-logo" />
+    <div class="airline-name">Vistara</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">09:45</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="duration">
+      <div>02 h 25 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">12:10</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="price">₹6,750</div>
+  </div>
+</div>
+
+<!-- CARD 5 -->
+<div class="flight-card" data-airline="airindia" data-tags="">
+  <div class="flight-header">
+    <img src="airlinelogo/airindia.png" class="airline-logo" />
+    <div class="airline-name">Air India</div>
+    <div class="baggage">Cabin: 3kg | Check-in: 10kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">11:00</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="duration">
+      <div>03 h</div>
+      <div class="stops">1 stop via Pune</div>
+    </div>
+    <div class="time-block">
+      <div class="time">14:00</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="price">₹6,100</div>
+  </div>
+</div>
+
+<!-- CARD 6 -->
+<div class="flight-card" data-airline="indigo" data-tags="nonstop refundable">
+  <div class="badge-wrapper">
+    <div class="badge refundable">Refundable</div>
+  </div>
+  <div class="flight-header">
+    <img src="airlinelogo/indigo.png" class="airline-logo" />
+    <div class="airline-name">Indigo</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">15:30</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="duration">
+      <div>02 h 10 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">17:40</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="price">₹6,200</div>
+  </div>
+</div>
+
+<!-- CARD 7 -->
+<div class="flight-card" data-airline="spicejet" data-tags="nonstop">
+  <div class="flight-header">
+    <img src="airlinelogo/spicejet.png" class="airline-logo" />
+    <div class="airline-name">SpiceJet</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">16:00</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="duration">
+      <div>02 h 15 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">18:15</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="price">₹5,900</div>
+  </div>
+</div>
+
+<!-- CARD 8 -->
+<div class="flight-card" data-airline="airindia" data-tags="nonstop cheapest">
+  <div class="badge-wrapper">
+    <div class="badge cheapest">Cheapest</div>
+  </div>
+  <div class="flight-header">
+    <img src="airlinelogo/airindia.png" class="airline-logo" />
+    <div class="airline-name">Air India</div>
+    <div class="baggage">Cabin: 3kg | Check-in: 10kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">17:30</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="duration">
+      <div>02 h 20 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">19:50</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="price">₹4,800</div>
+  </div>
+</div>
+
+<!-- CARD 9 -->
+
+<div class="flight-card" data-airline="vistara" data-tags="nonstop">
+  <div class="flight-header">
+    <img src="airlinelogo/vistara.png" class="airline-logo" />
+    <div class="airline-name">Vistara</div>
+    <div class="baggage">Cabin: 7kg | Check-in: 15kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">18:30</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="duration">
+      <div>02 h 25 m</div>
+      <div class="stops">Non stop</div>
+    </div>
+    <div class="time-block">
+      <div class="time">20:55</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="price">₹6,750</div>
+  </div>
+</div>
+
+<!-- CARD 10 -->
+<div class="flight-card" data-airline="airindia" data-tags="refundable">
+  <div class="badge badge-blue">Refundable</div>
+  <div class="flight-header">
+    <img src="airlinelogo/airindia.png" class="airline-logo" />
+    <div class="airline-name">Air India</div>
+    <div class="baggage">Cabin: 3kg | Check-in: 10kg</div>
+  </div>
+  <div class="flight-body">
+    <div class="time-block">
+      <div class="time">20:00</div>
+      <div class="city">Bangalore</div>
+    </div>
+    <div class="duration">
+      <div>03 h 00 m</div>
+      <div class="stops">1 stop via Chennai</div>
+    </div>
+    <div class="time-block">
+      <div class="time">23:00</div>
+      <div class="city">Mumbai</div>
+    </div>
+    <div class="price">₹6,500</div>
+  </div>
+</div>
+<script>
+  const checkboxes = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('.flight-card');
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const selected = Array.from(checkboxes)
+        .filter(c => c.checked)
+        .map(c => c.value.toLowerCase());
+
+      let cheapestPrice = Infinity;
+      if (selected.includes("cheapest")) {
+        cards.forEach(card => {
+          const price = parseInt(card.getAttribute('data-price'));
+          if (price < cheapestPrice) cheapestPrice = price;
+        });
+      }
+
+      cards.forEach(card => {
+        const airline = card.getAttribute('data-airline')?.toLowerCase();
+        const tags = card.getAttribute('data-tags')?.toLowerCase().split(" ") || [];
+        const depTimeStr = card.getAttribute('data-departure');
+        const depHour = depTimeStr ? parseInt(depTimeStr.split(':')[0]) : null;
+        const price = parseInt(card.getAttribute('data-price'));
+
+        // Basic tag and airline match
+        const tagMatch = selected.every(filter =>
+          ["cheapest", "late departure", "afternoon departure"].includes(filter) ||
+          tags.includes(filter) || airline === filter
+        );
+
+        // Time filtering
+        let timeMatch = true;
+        if (selected.includes("late departure")) {
+          timeMatch = depHour >= 18;
+        }
+        if (selected.includes("afternoon departure")) {
+          timeMatch = depHour >= 12 && depHour < 18;
+        }
+
+        // Cheapest filter
+        let cheapestMatch = true;
+        if (selected.includes("cheapest")) {
+          cheapestMatch = price === cheapestPrice;
+        }
+
+        const shouldShow = (tagMatch && timeMatch && cheapestMatch) || selected.length === 0;
+        card.style.display = shouldShow ? 'block' : 'none';
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.flight-card');
+    cards.forEach(function (card) {
+      card.style.cursor = 'pointer'; // optional: change cursor to pointer
+      card.addEventListener('click', function () {
+        window.location.href = 'flightdetails.html';
+      });
+    });
+  });
+
+</script>
+
+
+
+  <script src="search.js"></script>
+</body>
+</html>
